@@ -17,6 +17,8 @@ function Game_box() {
 	this.H = 20;
 	this.W = 20;
 
+	this.spd = 1;
+
 	//Draw Box
 	this.draw = function() {
 
@@ -24,7 +26,11 @@ function Game_box() {
 	};
 
 	this.move = function () {
-		this.X++;
+
+		if (this.X > 300) { this.spd = -1; }
+		if (this.X < 50) { this.spd = 1; }
+
+		this.X += this.spd;
 	};
 }
 
