@@ -17,21 +17,19 @@ function Game_box() {
 	this.H = 20;
 	this.W = 20;
 
-	this.spd = 5;
+	this.spd = [0, 0];
 
-	//Draw Box
+	//Draw box
 	this.draw = function() {
 
 		ctx.fillRect(this.X, this.Y, this.W, this.H);
 	};
 
+	//Move box
 	this.move = function () {
 
-		if (this.X > 300 || this.X < 50) { 
-			this.spd = -this.spd;
-		}
-
-		this.X += this.spd;
+		this.X += this.spd[0];
+		this.Y += this.spd[1];
 	};
 }
 
