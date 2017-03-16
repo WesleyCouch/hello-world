@@ -22,18 +22,18 @@ function Game_box() {
 
 		ctx.fillRect(this.X, this.Y, this.W, this.H);
 	};
-}
 
-function moveBox() {
-	box.X++;
+	this.move = function () {
+		this.X++;
+	};
 }
 
 function drawGame() {
 	ctx.clearRect(0,0, canvas.width, canvas.height);
 
 	//Move box
-	moveBox();
-
+	box.move();
+	
 	//Draw Box
 	box.draw();
 }
