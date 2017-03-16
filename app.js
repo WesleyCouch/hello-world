@@ -13,11 +13,16 @@ var box = {
 	W: 20,
 }
 
-function drawGame() {
+function moveBox() {
+	box.X++;
+}
 
+function drawGame() {
+	ctx.clearRect(0,0, canvas.width, canvas.height);
+	moveBox();
 	//X, Y, W, H
 	ctx.fillRect(box.X, box.Y, box.W, box.H);
 }
 
-var runGame = setInterval(drawGame(), 1000 / GAME_FPS);
+var runGame = setInterval(drawGame, 1000 / GAME_FPS);
 
