@@ -5,12 +5,23 @@ var ctx = canvas.getContext("2d");
 
 var GAME_FPS = 60;
 
-var box = {
+var box = new Game_box();
 
-	X: 100,
-	Y: 50,
-	H: 20,
-	W: 20,
+function Game_box() {
+
+	//Location
+	this.X = 100;
+	this.Y = 50;
+
+	//Dimensions
+	this.H = 20;
+	this.W = 20;
+
+	//Draw Box
+	this.draw = function() {
+
+		ctx.fillRect(this.X, this.Y, this.W, this.H);
+	};
 }
 
 function moveBox() {
@@ -19,9 +30,12 @@ function moveBox() {
 
 function drawGame() {
 	ctx.clearRect(0,0, canvas.width, canvas.height);
+
+	//Move box
 	moveBox();
-	//X, Y, W, H
-	ctx.fillRect(box.X, box.Y, box.W, box.H);
+
+	//Draw Box
+	box.draw();
 }
 
 var runGame = setInterval(drawGame, 1000 / GAME_FPS);
